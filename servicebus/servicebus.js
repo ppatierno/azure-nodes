@@ -125,27 +125,11 @@
 		if (this.endpointConfig) {
 			// get all other configuration
 			this.queueName = n.queueName;
-			this.queueCreate = n.queueCreate;
 			this.timeout = n.timeout; // for underneath HTTP request in the azure package
 			this.isPeekLock = (n.isPeekLock == "true");
 			
 			// create receiver
 			queueReceiver = azure.createServiceBusService(this.endpointConfig.connString);
-			
-			// check if queue creation is needed
-			if (this.queueCreate) {
-				queueReceiver.createQueueIfNotExists(this.queueName, function(error, queueCreated, response){
-					if (!error) {
-						// queue created or already exists
-						if (queueCreated)
-							console.log("Queue created");
-						else
-							console.log("Queue already exists");
-					} else {
-						console.log("Queue error");
-					}
-				});
-			}
 			
 			// node started pump for receiving message from queue
 			node.status({fill:"green",shape:"dot",text:"running"});

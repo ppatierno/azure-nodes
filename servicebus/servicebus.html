@@ -71,11 +71,6 @@
         <input type="text" id="node-input-queueName" placeholder="queueName">
     </div>
 	<div class="form-row">
-        <label>&nbsp;</label>
-        <input type="checkbox" id="node-input-queueCreate" style="display: inline-block; width: auto; vertical-align: top;">
-        <label for="node-input-queueCreate" style="width: 70%;">Create if not exsists ?</label>
-    </div>
-	<div class="form-row">
         <label for="node-input-timeout"><i class="icon-tag"></i> Timeout</label>
         <input type="text" id="node-input-timeout" placeholder="timeout">
     </div>
@@ -103,7 +98,6 @@
 		defaults: {
             endpoint: {type: "sb-endpoint", required:true},
             queueName: {value: "", required: true},
-			queueCreate: {value: false },
 			timeout: { value: 60, required: true, validate: RED.validators.number() },
 			isPeekLock: { value: false },
 			name: {value: ""}
