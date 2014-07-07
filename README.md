@@ -13,6 +13,12 @@ Service Bus
 1. Sending and receiving messages to/from a queue;
 2. Sending messages to a topic and receiving messages from subscription;
 
+## Installation
+
+The library is based on official [Microsoft Azure SDK for Node.js](https://github.com/Azure/azure-sdk-for-node). You need to install this SDK to work with Azure-Nodes. The simple way to do it is use Node Package Manager (NPM) and install ["azure" module] (https://www.npmjs.org/package/azure).
+
+After this, you can copy library files (*.js and *.html) under "nodes" folder of Node-RED installation.
+
 ## Author
 
 Azure-Nodes is a creation of [Paolo Patierno](http://mvp.microsoft.com/en-us/mvp/Paolo%20Patierno-5000734)
