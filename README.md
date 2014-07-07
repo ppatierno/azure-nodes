@@ -4,6 +4,8 @@ This project provides a set of nodes for [Node-RED](http://nodered.org/) that ma
 
 ## Documentation
 
+The official documentation is available in the related [Wiki](https://github.com/ppatierno/azure-nodes/wiki) pages.
+
 Current version supports the following Microsoft Azure Services.
 
 Service Bus
