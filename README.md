@@ -1,4 +1,4 @@
-azure-nodes
+Microsoft Azure nodes for Node-RED
 ===========
 
-Library with nodes for Node-RED to use Microsoft Azure services
+This project provides a set of nodes for Node-RED that makes it easy to interact with Microsoft Azure Services.
