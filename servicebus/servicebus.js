@@ -91,9 +91,9 @@
 				this.status({fill:"green",shape:"dot",text:"sending"});
 				queueSender.sendQueueMessage(this.queueName, message, function(error) {
 					if (!error) {
-						console.log("Message Sent : payload [" + message.body + "]");
+						console.log("Message Sent");
 					} else {
-						console.log("Error sending message : payload [" + message.body + "]");
+						console.log("Error sending message");
 					}
 					// node is waiting to send message from flow to a queue 
 					node.status({fill:"red",shape:"ring",text:"waiting"});
@@ -229,9 +229,9 @@
 				this.status({fill:"green",shape:"dot",text:"sending"});
 				topicClient.sendTopicMessage(this.topicName, message, function(error) {
 					if (!error) {
-						console.log("Message Sent : payload [" + message.body + "]");
+						console.log("Message Sent");
 					} else {
-						console.log("Error sending message : payload [" + message.body + "]");
+						console.log("Error sending message");
 					}
 					// node is waiting to send message from flow to a topic 
 					node.status({fill:"red",shape:"ring",text:"waiting"});
@@ -373,19 +373,20 @@
 			subscriptionClient.deleteRule(topicName, subscriptionName,  ruleName, function(error) {
 				if (!error) {
 					console.log("deleted rule " + ruleName + " on " + topicName + "/" + subscriptionName);
-					// create rule
-					subscriptionClient.createRule(topicName, subscriptionName, ruleName, ruleOptions, function(error, createruleresult) {
-						if (!error) {
-							console.log("created rule on " + topicName + "/" + subscriptionName + " [" + ruleName + "," + filterType + "," + filterExpression + "]");
-						} else {
-							console.log("Error creating rule on " + topicName + "/" + subscriptionName + " [" + ruleName + "," + filterType + "," + filterExpression + "]");
-							console.log(error);
-						}
-					});
 				} else {
 					console.log("Error deleting rule " + ruleName + " on " + topicName + "/" + subscriptionName);
 					console.log(error);
 				}
+				
+				// create rule
+				subscriptionClient.createRule(topicName, subscriptionName, ruleName, ruleOptions, function(error, createruleresult) {
+					if (!error) {
+						console.log("created rule on " + topicName + "/" + subscriptionName + " [" + ruleName + "," + filterType + "," + filterExpression + "]");
+					} else {
+						console.log("Error creating rule on " + topicName + "/" + subscriptionName + " [" + ruleName + "," + filterType + "," + filterExpression + "]");
+						console.log(error);
+					}
+				});
 			});	
 		},
 		
